@@ -12,7 +12,7 @@ namespace Project.Web.DAL
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["FreeLancerDB"].ConnectionString;
 
-        const string SQL_GetLastTimeCard = "select * from timecard where user_name = @username;";
+        const string SQL_GetLastTimeCard = "select * from timecard where user_name = @username ORDER BY end_datetime DESC;";
         const string SQL_ClockIn = "INSERT INTO timecard VALUES(@user_name, NULL, GETDATE(), NULL, null, 0);";
         const string SQL_ClockOut = "UPDATE timecard SET end_datetime = GetDate() WHERE user_name = @username AND end_datetime is NULL;"; //Whats the IDENTITY thing for SQL that I cant seem to find/Know what it is?
         const string SQL_CanClockIn = "SELECT * FROM timecard WHERE user_name = @Username AND end_datetime is NULL;";
