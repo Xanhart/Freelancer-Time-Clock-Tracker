@@ -1,0 +1,17 @@
+﻿@using Project.Web.Models;
+@model TimeCard
+@{
+    ViewBag.Title = "Main";
+}
+
+<h2>Login</h2>
+<p>Please Enter your email</p>
+<form action="@Url.Action("Main", "FreeLancer")" method="get">
+
+    <div>
+        <p>Email: @Html.TextBoxFor(m => m.Username)</p>
+    </div>
+
+    <button>Submit</button>
+
+</form>

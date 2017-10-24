@@ -1,0 +1,49 @@
+﻿@using Project.Web.Models;
+@model List<TimeCard>
+@{
+    ViewBag.Title = "Login";
+}
+<h2> Here is your recent time card activity! </h2>
+@*<p>Welcome @Model.Username !</p>*@
+<a href="~/FreeLancer/Clock">Go to Clock in/out page</a>
+<table>
+    <tr>
+        <th>Project</th>
+        <th>Clock In Time</th>
+        <th>Clock Out Time</th>
+        <th>Total Hours</th>
+    </tr>
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@v.Project</td>
+            <td>@v.ClockIn</td>
+            @if (v.ClockOut.HasValue)
+            {
+                <td>@v.ClockOut.Value</td>
+            }
+            else
+            {
+                <td></td>
+            }
+
+            @if (v.ClockOut.HasValue)
+            {
+            <td>@(v.ClockOut.Value - v.ClockIn)</td>
+            }
+            else
+            {
+                <td></td>
+            }
+
+
+        </tr>
+    }
+    
+</table>
+<a href="~/FreeLancer/Clock">Go to Clock in/out page</a>
+@*<p>@Model.Id</p>
+<p>@Model.Username</p>
+<p>@Model.Project</p>
+<p>@Model.Notes</p>
+<p>@Model.Rate</p>*@

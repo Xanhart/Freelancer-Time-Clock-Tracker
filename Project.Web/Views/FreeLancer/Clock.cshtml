@@ -1,0 +1,22 @@
+﻿@using Project.Web.Models;
+@model ClockinClockOut
+@{
+    ViewBag.Title = "Clock";
+}
+
+<h2>Clock</h2>
+<p>Stuff Happens Here</p>
+
+@if(Model.CanClockIn == true)
+{
+    <form action="@Url.Action("ClockIn","FreeLancer")" method = "post">
+        <button>Clock In!</button>
+        </form> @*This is going to post to clock in action*@
+}
+else
+{
+    <form action="@Url.Action("ClockOut","FreeLancer")" method="post">
+        <button>Clock Out!</button> @*This is going to post to the clock out action*@
+    </form>
+}
+    
